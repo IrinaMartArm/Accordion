@@ -1,43 +1,46 @@
-import { useState } from "react"
+import React from "react"
 
-export const OnOff = () => {
+type OnOffPropsType = {
+    on: boolean
+    setOn: (on: boolean) => void
+}
 
-    let [on, setOn] = useState(false)
+export const OnOff: React.FC<OnOffPropsType> = (props: OnOffPropsType) => {
 
-    const onStyle = {
-        width: '30px',
-        height: '30px',
-        padding: '3px',
-        borderRadius: '2px',
-        border: '1px solid black',
-        display: 'inline-block',
-        backgroundColor: on ? 'lightgreen' : 'white'
-    }
-    const offStyle = {
-        width: '30px',
-        height: '30px',
-        padding: '3px',
-        borderRadius: '2px',
-        border: '1px solid black',
-        display: 'inline-block',
-        marginLeft: '10px',
-        backgroundColor: on ? 'white' : 'lightblue'
-    }
+    
+
+    // const onStyle = {
+    //     width: '30px',
+    //     height: '30px',
+    //     padding: '3px',
+    //     borderRadius: '2px',
+    //     border: '1px solid black',
+    //     display: 'inline-block',
+    //     backgroundColor: on ? 'lightgreen' : 'white'
+    // }
+    // const offStyle = {
+    //     width: '30px',
+    //     height: '30px',
+    //     padding: '3px',
+    //     borderRadius: '2px',
+    //     border: '1px solid black',
+    //     display: 'inline-block',
+    //     marginLeft: '10px',
+    //     backgroundColor: on ? 'white' : 'lightblue'
+    // }
     const indikatorStyle = {
-        width: '10px',
-        height: '10px',
-        borderRadius: '5px',
+        width: '20px',
+        height: '20px',
+        borderRadius: '50%',
         border: '1px solid black',
         display: 'inline-block',
         marginLeft: '10px',
-        backgroundColor: on ? 'lightgreen' : 'lightblue'
+        backgroundColor: props.on ? 'lightgreen' : 'lightblue'
     }
 
     return (  
         <div>
-            <button style={onStyle} onClick={()=>{setOn(true)}}>on</button>
-            <button style={offStyle} onClick={()=>{setOn(false)}}>off</button>
-            <div style={indikatorStyle}></div>
+            <div style={indikatorStyle} onClick={()=>{props.setOn(props.on)}}></div>
         </div>
     );
 }

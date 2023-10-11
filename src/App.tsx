@@ -6,9 +6,12 @@ import { OnOff } from "./components/OnOff";
 import { Rating } from "./components/rating/Rating";
 import { useState } from "react";
 import { RatingValueType } from "./components/rating/Rating.tsx"
+import { Accordion2 } from "./components/accordion/Accordion2.tsx";
 
 function App() {
   const [rating, setRating] = useState<RatingValueType>(0)
+  let [on, setOn] = useState(false)
+  let [collapsed, setCollapsed] = useState(true)
 
   return (
     <>
@@ -18,8 +21,9 @@ function App() {
         <Rating value={rating} onClick={setRating}/>
         <Accordion titleValue={"Menu"} />
         <Accordion titleValue={"List"} />
-        <OnOff />
-        <OnOff />
+        <Accordion2 titleValue={"List"} collapsed={collapsed} setCollapsed={()=>setCollapsed(!collapsed)}/>
+        <OnOff on={on} setOn={setOn}/>
+        {/* <OnOff /> */}
       </div>
     </>
   );
