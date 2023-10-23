@@ -1,12 +1,13 @@
 import "./App.css";
-import { Accordion } from "./components/accordion/Accordion";
 import { Title } from "./components/rating/Title";
 import {  UnControlRating } from "./components/rating/UnControlRating";
-import { OnOff } from "./components/OnOff";
+import { OnOff } from "./components/onOf/OnOff.tsx";
 import { Rating } from "./components/rating/Rating";
 import { useState } from "react";
 import { RatingValueType } from "./components/rating/Rating.tsx"
-import { Accordion2 } from "./components/accordion/Accordion2.tsx";
+import { ControleAccordion } from "./components/accordion/ControleAccordion.tsx";
+import { UnControleAccordion } from "./components/accordion/UnControlAccordion.tsx";
+import { UnControlOnOff } from "./components/onOf/UnControlOnOf.tsx";
 
 function App() {
   const [rating, setRating] = useState<RatingValueType>(0)
@@ -19,11 +20,10 @@ function App() {
         <Title title="This is App Component " />
         <UnControlRating/>
         <Rating value={rating} onClick={setRating}/>
-        <Accordion titleValue={"Menu"} />
-        <Accordion titleValue={"List"} />
-        <Accordion2 titleValue={"List"} collapsed={collapsed} setCollapsed={()=>setCollapsed(!collapsed)}/>
-        <OnOff on={on} setOn={setOn}/>
-        {/* <OnOff /> */}
+        <UnControleAccordion titleValue={"List"} />
+        <ControleAccordion titleValue={"List"} collapsed={collapsed} setCollapsed={()=>setCollapsed(!collapsed)}/>
+        <UnControlOnOff />
+        <OnOff on={on} onClick={setOn}/>
       </div>
     </>
   );

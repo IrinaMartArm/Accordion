@@ -8,7 +8,7 @@ type AccordionPropsType = {
     setCollapsed: () => void
 }
 
-export const Accordion2: React.FC<AccordionPropsType> = (props: AccordionPropsType) => {
+export const ControleAccordion: React.FC<AccordionPropsType> = (props: AccordionPropsType) => {
 
     
 

@@ -6,7 +6,7 @@ type AccordionPropsType = {
     titleValue: string
 }
 
-export const Accordion = (props: AccordionPropsType) => {
+export const UnControleAccordion = (props: AccordionPropsType) => {
 
     let [collapsed, setCollapsed] = useState(true)
 
