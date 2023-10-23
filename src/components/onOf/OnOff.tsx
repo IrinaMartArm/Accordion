@@ -40,7 +40,7 @@ export const OnOff: React.FC<OnOffPropsType> = (props: OnOffPropsType) => {
 
     return (  
         <div>
-            <div style={indikatorStyle} onClick={()=>{props.onClick(props.on)}}></div>
+            <div style={indikatorStyle} onClick={()=>{props.onClick(!props.on)}}></div>
         </div>
     );
 }

@@ -1,12 +1,13 @@
 import { useState } from "react"
 
-type OnOffPropsType = {
-    defaultValue?: boolean
-}
+// type OnOffPropsType = {
+//     defaultValue?: boolean
+// }
 
-export const UnControlOnOff = (props: OnOffPropsType) => {
-    const {defaultValue} = props
-    const [value, setValue] = useState<boolean>(defaultValue ? defaultValue : false)
+export const UnControlOnOff = () => {
+    // const {defaultValue} = props
+    const [value, setValue] = useState<boolean>(false)
+    // const [value, setValue] = useState<boolean>(defaultValue ? defaultValue : false)
 
     // const onStyle = {
     //     width: '30px',

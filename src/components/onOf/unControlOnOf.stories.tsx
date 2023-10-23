@@ -6,7 +6,7 @@ export default {
     component: UnControlOnOff
 }
 
-export const OnOffOpen = () => {<UnControlOnOff defaultValue={true} />}
+export const OnOffOpen = () => {<UnControlOnOff defaultValue={true}  /> }
 export const OnOffClose = () => {<UnControlOnOff defaultValue={false}/>}
 export const OnOffActive = () => {
     const [value, setValue] = useState<boolean>(true)
