@@ -1,9 +1,11 @@
-export const AccordBody = () => {
+export type PropsType = {
+    items: string[]
+}
+
+export const AccordBody = (props: PropsType) => {
     return (  
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map((i, index) => <li key={index}>{i}</li>)}
         </ul>
     );
 }

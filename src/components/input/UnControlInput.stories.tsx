@@ -1,9 +1,8 @@
 import { ChangeEvent, useRef, useState } from "react";
-import { UnControlInput } from "./UnControlInput";
+
 
 export default {
     title: 'Input',
-    component: UnControlInput
 }
 
 export const TrackInput = () => {
@@ -13,7 +12,7 @@ export const TrackInput = () => {
         setValue(text)
     }
     return (<>
-        <input onChange={inputHandler}/>{-value}
+        <input onChange={inputHandler}/>{value}
     </>)
 }
 
@@ -26,8 +25,39 @@ export const TrackInputByRef = () => {
         setValue(el.value)
     }
     return (<>
-        <input ref={ref}/><button onClick={buttonHandler}>Save</button>{-value}
+        <input ref={ref}/><button onClick={buttonHandler}>Save</button>{value}
     </>)
+}
+
+export const ControllInput = () => {
+    const [parentValue, setParentValue] = useState('')
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setParentValue(e.currentTarget.value)
+    }
+    return <input value={parentValue} onChange={onChangeHandler}/>
+}
+
+export const ControllCheckbox = () => {
+    const [parentValue, setParentValue] = useState(true)
+    const onChangeHandler = () => {
+        setParentValue(!parentValue)
+    }
+    return <input type="checkbox" checked={parentValue} onChange={onChangeHandler} />
+}
+
+export const ControllSelect = () => {
+    const [parentValue, setParentValue] = useState<string | undefined>('2')
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        setParentValue(e.currentTarget.value)
+    }
+    return (
+        <select value={parentValue} onChange={onChangeHandler}>
+            <option value="1">Minsk</option>
+            <option value="2">Erevan</option>
+            <option value="3">Los</option>
+        </select>
+    )
+    
 }
 
 
