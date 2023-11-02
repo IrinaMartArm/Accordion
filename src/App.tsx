@@ -6,7 +6,7 @@ import { Rating } from "./components/rating/Rating";
 import { useState } from "react";
 import { RatingValueType } from "./components/rating/Rating.tsx"
 import { ControleAccordion } from "./components/accordion/ControleAccordion.tsx";
-import { UnControleAccordion } from "./components/accordion/UnControlAccordion.tsx";
+import {UnControlAccordion} from "./components/accordion/UnControlAccordion.tsx";
 import { UnControlOnOff } from "./components/onOf/UnControlOnOf.tsx";
 import {Select} from "./components/select/Select.tsx";
 
@@ -29,11 +29,11 @@ function App() {
         <Title title="This is App Component " />
         <UnControlRating/>
         <Rating value={rating} onClick={setRating}/>
-        <UnControleAccordion titleValue={"List"} />
+        <UnControlAccordion titleValue={"List"} items={['ira', 'Suren']}/>
         <ControleAccordion titleValue={"List"} collapsed={collapsed} onClick={()=>setCollapsed(!collapsed)} items={['ira', 'Suren']}/>
         <UnControlOnOff />
         <OnOff on={on} onClick={setOn}/>
-        <Select value={''} items={items} />
+        <Select value={''} items={items} onChange={()=>{}}/>
       </div>
     </>
   );

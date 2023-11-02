@@ -1,8 +1,8 @@
-import { UnControleAccordion } from "./UnControlAccordion"
+import { UnControlAccordion } from "./UnControlAccordion"
 
 export default {
     title: 'Accordion',
-    component: UnControleAccordion
+    component: UnControlAccordion
 }
 
-export const AccordionMenu = () => {<UnControleAccordion titleValue="Munu" />}
+export const AccordionMenu = () => {<UnControlAccordion titleValue="Munu" items={['ira', 'Suren']}/>}
