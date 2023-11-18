@@ -6,13 +6,14 @@ export default {
 
 
 
-export  const Example = () => {
+export  const RenderExample = () => {
     console.log('counter')
     const [counter, setCounter] = useState(0)
     const [fake, setFake] = useState(0)
 
     useEffect(() => {
         console.log('useEffect every render time')
+        document.title = counter.toString()
     });
 
     useEffect(() => {
@@ -28,5 +29,34 @@ export  const Example = () => {
         <button onClick={()=>setCounter(counter + 1)}>+</button>
         <button onClick={()=>setFake(fake + 1)}>+</button>
         {counter} {fake}
+    </>
+}
+
+
+
+export  const TimeOutExample = () => {
+    console.log('counter')
+    const [counter, setCounter] = useState(0)
+    const [fake, setFake] = useState(0)
+
+    useEffect(() => {
+        console.log('useEffect setTimeout')
+        setTimeout(() => {
+            document.title = counter.toString()
+        }, 1000)
+    }, [counter]);
+
+      useEffect(() => {
+        console.log('tik')
+        setInterval(() => {
+            setCounter((state) => state + 1)
+        }, 1000)
+    }, []);
+
+
+    return <>
+        <button onClick={()=>setCounter(counter + 1)}>+</button>
+        <button onClick={()=>setFake(fake + 1)}>+</button>
+        counter: {counter}   fake: {fake}
     </>
 }
