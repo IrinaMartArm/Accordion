@@ -12,10 +12,6 @@ export const Clock: React.FC<ClockPropsType> = (props) => {
     const [date, setDate] = useState(new Date())
 
     useEffect(() => {
-        setDate(new Date())
-    }, [date]);
-
-    useEffect(() => {
         const id = setInterval(() => {
             setDate(new Date())
         }, 1000)

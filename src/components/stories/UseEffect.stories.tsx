@@ -48,9 +48,12 @@ export  const TimeOutExample = () => {
 
     useEffect(() => {
         console.log('tik')
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             setCounter((state) => state + 1)
         }, 1000)
+        return () => {
+            clearInterval(intervalId)
+        }
     }, []);
 
 
@@ -58,5 +61,25 @@ export  const TimeOutExample = () => {
         <button onClick={()=>setCounter(counter + 1)}>+</button>
         <button onClick={()=>setFake(fake + 1)}>+</button>
         counter: {counter}   fake: {fake}
+    </>
+}
+
+export const KeysTracker = () => {
+
+    const [text, setText] = useState('')
+    // console.log(text)
+
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            setText(text + e.key)
+            console.log(e.key)
+        }
+        window.addEventListener('keypress', handler)
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+    }, [text]);
+    return <>
+    Text:  {text}
     </>
 }
