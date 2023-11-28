@@ -46,7 +46,7 @@ export  const TimeOutExample = () => {
         }, 1000)
     }, [counter]);
 
-      useEffect(() => {
+    useEffect(() => {
         console.log('tik')
         setInterval(() => {
             setCounter((state) => state + 1)
